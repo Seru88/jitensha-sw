@@ -2,26 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  min-height: 100dvh;
+  background-color: rgba(9, 10, 15, 1);
+  background-image: linear-gradient(
       to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgba(9, 10, 15, 0) 40%,
+      rgba(22, 6, 33, 0.5) 60%,
+      rgba(22, 6, 33, 0.75) 85%,
+      rgba(22, 27, 57, 0.8) 100%
+    ),
+    url('/stars.png');
 }
