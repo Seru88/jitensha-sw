@@ -3,10 +3,10 @@
  * @see https://v0.dev/t/RoRcjPRmTd6
  */
 import { CardContent, CardFooter, Card, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
-import { EjunkieProduct } from '@/app/shop/schema'
+import { EjunkieProduct } from '@/app/comics/schema'
+import { DynamicRedirectButton } from './dynamic-redirect-button'
 
 type Props = {
   comic: EjunkieProduct
@@ -20,12 +20,13 @@ export function ComicProductCard({ comic }: Props) {
           src={comic.images[0] ?? ''}
           alt={comic.name ?? ''}
           fill
+          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
           className='object-cover'
         />
       </AspectRatio>
       <CardContent className='text-center'>
         <div className='space-y-4'>
-          <CardTitle className='text-lg font-medium leading-6'>
+          <CardTitle className='text-xl font-semibold leading-6'>
             {comic.name ?? 'N/A'}
           </CardTitle>
           {/* <p className='text-sm leading-5 text-gray-500 dark:text-gray-400'>
@@ -47,7 +48,9 @@ export function ComicProductCard({ comic }: Props) {
         </div>
       </CardContent>
       <CardFooter className='flex justify-center'>
-        <Button variant='outline'>Read Now</Button>
+        <DynamicRedirectButton variant='outline' to={`/comics/${comic.id}`}>
+          Read Now
+        </DynamicRedirectButton>
       </CardFooter>
     </Card>
   )

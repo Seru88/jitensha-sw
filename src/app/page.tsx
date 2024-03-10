@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-  redirect('/shop', RedirectType.replace)
+  redirect('/comics', RedirectType.replace)
 
   // return <div>Hello</div>
 }
