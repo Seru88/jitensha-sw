@@ -17,5 +17,8 @@ export default async function ComicProductPage({ params }: Props) {
   const products = data.products as EjunkieProduct[]
   const comic = products.length ? products[0] : null
 
-  return <div>{comic?.name}</div>
+  return <div>
+    <h2>{comic?.name}</h2>
+    <span>{comic?.price}</span>
+  </div>
 }
