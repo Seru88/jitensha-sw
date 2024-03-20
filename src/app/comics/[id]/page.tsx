@@ -21,5 +21,6 @@ export default async function ComicProductPage({ params }: Props) {
     <div>
       <h2>{comic?.name}</h2>
       <span>{comic?.price}</span>
-    </div>)
+    </div>
+  )
 }
