@@ -12,8 +12,6 @@ export default async function Comics() {
   const data = await getProducts()
   const products = data.products as EjunkieProduct[]
 
-  console.log(products[0])
-
   return (
     <div>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
