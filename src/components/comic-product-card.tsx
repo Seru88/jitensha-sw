@@ -4,7 +4,7 @@
  */
 import { EjunkieProduct } from '@/app/comics/schema'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
-import { Card, CardContent,  CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardTitle } from '@/components/ui/card'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Badge } from './ui/badge'
@@ -17,16 +17,16 @@ export function ComicProductCard({ comic }: Props) {
   return (
     <Card className='w-full mx-auto overflow-hidden relative hover:scale-105 transition-transform duration-300 ease-out'>
       <Link href={`/comics/${comic.id}`}>
-      <AspectRatio ratio={240 / 340} className='hover:brightness-[.8] transition-all'>
-        <Image
-          src={comic.images[0] ?? ''}
-          alt={comic.name ?? ''}
-          fill
-          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-          className='object-cover'
-        />
-      </AspectRatio>
-      <CardContent className='absolute bottom-0 p-4 bg-gradient-to-t pointer-events-none from-black flex flex-col justify-end h-36 w-full'>
+        <AspectRatio ratio={240 / 340} className='hover:brightness-[.8] transition-all'>
+          <Image
+            src={comic.images[0] ?? ''}
+            alt={comic.name ?? ''}
+            fill
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            className='object-cover'
+          />
+        </AspectRatio>
+        <CardContent className='absolute bottom-0 p-4 bg-gradient-to-t pointer-events-none from-black flex flex-col justify-end h-36 w-full'>
           <CardTitle className='text-lg font-semibold leading-6 text-white'>
             {comic.name ?? 'N/A'}
           </CardTitle>
@@ -38,13 +38,13 @@ export function ComicProductCard({ comic }: Props) {
                 <Badge
                   key={tag}
                   variant='secondary'
-                  className='badge-sm font-normal'
+                  className='badge-sm'
                 >
                   {tag}
                 </Badge>
               ))}
           </div>
-      </CardContent>
+        </CardContent>
       </Link>
     </Card>
   )
