@@ -28,7 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className='p-6 max-w-screen-xl m-auto'>{children}</main>
+          <main className='p-6 m-w-screen-xl m-auto'>{children}</main>
           <footer className='p-4 bg-transparent text-base-content w-full text-center'>
             <aside>
               <p>
