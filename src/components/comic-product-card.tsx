@@ -7,6 +7,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Card, CardContent,  CardTitle } from '@/components/ui/card'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Badge } from './ui/badge'
 
 type Props = {
   comic: EjunkieProduct
@@ -26,24 +27,23 @@ export function ComicProductCard({ comic }: Props) {
         />
       </AspectRatio>
       <CardContent className='absolute bottom-0 p-4 bg-gradient-to-t pointer-events-none from-black flex flex-col justify-end h-36 w-full'>
-        <div className='space-y-3'>
           <CardTitle className='text-lg font-semibold leading-6 text-white'>
             {comic.name ?? 'N/A'}
           </CardTitle>
-          <div className='flex flex-wrap gap-2 capitalize'>
+          <div className='flex flex-wrap gap-2 capitalize mt-2'>
             {comic.tags
               .filter(tag => tag !== null)
               .toSorted((a, b) => b!.length - a!.length)
               .map(tag => (
-                <span
+                <Badge
                   key={tag}
-                  className='badge-secondary badge badge-sm'
+                  variant='secondary'
+                  className='badge-sm font-normal'
                 >
                   {tag}
-                </span>
+                </Badge>
               ))}
           </div>
-        </div>
       </CardContent>
       </Link>
     </Card>
