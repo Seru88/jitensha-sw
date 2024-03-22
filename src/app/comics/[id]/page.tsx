@@ -10,6 +10,7 @@ import { CarouselContent } from '@/components/ui/carousel'
 import { CarouselNext } from '@/components/ui/carousel'
 import { CarouselPrevious } from '@/components/ui/carousel'
 import { Badge } from '@/components/ui/badge'
+import { FadeIn } from '@/components/fade-in'
 
 type Props = {
   params: { id: string }
@@ -28,8 +29,7 @@ export default async function ComicProductPage({ params }: Props) {
   const comic = products.length ? products[0] : null
 
   return (
-    // <div>
-    //   <div className="px-4 md:px-6 xl:px-8 py-6 lg:py-12">
+    <FadeIn>
         <div className="grid gap-6 md:gap-8 lg:gap-12 md:grid-cols-2">
           <div className="grid gap-4 md:gap-6">
             <div className="space-y-2">
@@ -207,7 +207,6 @@ export default async function ComicProductPage({ params }: Props) {
             </div>
           </div>
         </div>
-    //   </div>
-    // </div>
+    </FadeIn>
   )
 }
