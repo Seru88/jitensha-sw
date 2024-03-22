@@ -1,7 +1,14 @@
 {
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "eslint-plugin-astro"
+  ],
   "extends": [
-    "next/core-web-vitals",
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:eslint-plugin-astro/flat/recommended",
     "prettier"
   ]
 }
