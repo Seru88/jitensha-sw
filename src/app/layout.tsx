@@ -6,14 +6,10 @@ import { ReactNode } from 'react'
 
 const fontSans = FontSans({
   subsets: ['latin'],
-  variable: '--font-sans',
+  variable: '--font-sans'
 })
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en' data-theme='sunset'>
       <body
@@ -28,8 +24,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className='p-10 m-w-screen-xl m-auto'>{children}</main>
-          <footer className='p-4 bg-transparent text-base-content w-full text-center'>
+          <main className='m-w-screen-xl m-auto p-10'>{children}</main>
+          <footer className='w-full bg-transparent p-4 text-center text-base-content'>
             <aside>
               <p>
                 Copyright © {new Date(Date.now()).getFullYear()} - All right
