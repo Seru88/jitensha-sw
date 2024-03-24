@@ -1,6 +1,6 @@
 import { ComicProductCard } from '@/components/comic-product-card'
 import type { Metadata } from 'next'
-import { EjunkieProduct } from './schema'
+import { EjunkieProduct } from '@/schema'
 import { getProducts } from '@/lib/ejunkie-api'
 import { FadeIn } from '@/components/fade-in'
 

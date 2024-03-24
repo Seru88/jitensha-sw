@@ -9,8 +9,9 @@ import { CarouselItem } from '@/components/ui/carousel'
 import { CarouselContent } from '@/components/ui/carousel'
 import { CarouselNext } from '@/components/ui/carousel'
 import { CarouselPrevious } from '@/components/ui/carousel'
-import { Badge } from '@/components/ui/badge'
 import { FadeIn } from '@/components/fade-in'
+import Image from 'next/image'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 
 type Props = {
   params: { id: string }
@@ -32,28 +33,17 @@ export default async function ComicProductPage({ params }: Props) {
     <FadeIn>
       <div className='grid gap-6 md:grid-cols-2 md:gap-8 lg:gap-12'>
         <div className='grid gap-4 md:gap-6'>
-          <div className='space-y-2'>
-            <h1 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-              {comic?.name}
-            </h1>
-            <div className='flex items-center gap-2'>
-              <div className='flex items-center gap-0.5'>
-                {/*   <StarIcon className="w-5 h-5 fill-primary" /> */}
-                {/*   <StarIcon className="w-5 h-5 fill-primary" /> */}
-                {/*   <StarIcon className="w-5 h-5 fill-primary" /> */}
-                {/*   <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" /> */}
-                {/*   <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" /> */}
-              </div>
-            </div>
-          </div>
-          <div className='flex flex-wrap gap-2 capitalize'>
+          <h1 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
+            {comic?.name}
+          </h1>
+          <div className='flex flex-wrap items-center gap-2 capitalize'>
             {comic?.tags
               .filter(tag => tag !== null)
               .toSorted((a, b) => b!.length - a!.length)
               .map(tag => (
-                <Badge key={tag} variant='secondary'>
+                <div key={tag} className='badge badge-secondary font-semibold'>
                   {tag}
-                </Badge>
+                </div>
               ))}
           </div>
           <div className='grid gap-2 text-base lg:gap-4 xl:gap-6'>
@@ -138,12 +128,28 @@ export default async function ComicProductPage({ params }: Props) {
           </div>
         </div>
         <div className='grid gap-4 md:gap-6'>
-          <Carousel className='aspect-video w-full max-w-sm overflow-hidden rounded-xl border'>
-            <CarouselContent className='aspect-video'>
-              <CarouselItem>
+          <Carousel className='mx-auto w-full max-w-md overflow-hidden'>
+            <CarouselContent>
+              {comic?.images
+                .filter(src => src !== null)
+                .map((src, i) => (
+                  <CarouselItem key={i}>
+                    <AspectRatio ratio={3 / 4}>
+                      <Image
+                        alt='Cover'
+                        className='object-cover'
+                        src={src!}
+                        fill
+                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                      />
+                    </AspectRatio>
+                  </CarouselItem>
+                ))}
+
+              {/* <CarouselItem>
                 <img
                   alt='Cover'
-                  className='aspect-video object-cover'
+                  className='aspect-auto object-cover'
                   height={225}
                   src='/placeholder.svg'
                   width={400}
@@ -152,21 +158,12 @@ export default async function ComicProductPage({ params }: Props) {
               <CarouselItem>
                 <img
                   alt='Cover'
-                  className='aspect-video object-cover'
+                  className='aspect-auto object-cover'
                   height={225}
                   src='/placeholder.svg'
                   width={400}
                 />
-              </CarouselItem>
-              <CarouselItem>
-                <img
-                  alt='Cover'
-                  className='aspect-video object-cover'
-                  height={225}
-                  src='/placeholder.svg'
-                  width={400}
-                />
-              </CarouselItem>
+              </CarouselItem> */}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />
