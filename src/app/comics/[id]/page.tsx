@@ -1,5 +1,5 @@
 import { getProduct, getProducts } from '@/lib/ejunkie-api'
-import { EjunkieProduct } from '../schema'
+import { EjunkieProduct } from '@/schema'
 import { Label } from '@/components/ui/label'
 import { RadioGroup } from '@/components/ui/radio-group'
 import { RadioGroupItem } from '@/components/ui/radio-group'
